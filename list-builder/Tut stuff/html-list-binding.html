@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML List Binding</title>
+    </head>
+    <body>
+        <h2 id="title">Classes: HTML List Binding</h2>
+        <ul id="my-list">
+            <!-- To Be filled by Javascript -->
+        </ul>
+
+        <script src="ListBinding.js"></script>
+        <script>
+            const myList = document.getElementById('my-list');
+            const listBinding = new ListBinding(myList);
+            listBinding.update();
+        </script>
+    </body>
+</html>

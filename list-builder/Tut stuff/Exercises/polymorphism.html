@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<htmlJ>
+    <head>
+        <title>Polymorphism</title>
+    </head>
+    <body>
+        <script>
+            class Animal {
+                constructor (name) {
+                    this.name = name;
+                }
+
+                makeSound () {
+                    console.log('Generic Animal Sound!');
+                }
+            }
+
+            class Dog extends Animal {
+                constructor (name) {
+                    super (name);
+                }
+
+                makeSound () {
+                    super.makeSound();
+                    console.log('woof');
+                }
+            }
+
+            const animalOne = new Animal('Bill');
+            const animalTwo = new Dog('Jeff');
+
+            animalOne.makeSound();
+            animalTwo.makeSound();
+        </script>
+    </body>
+</htmlJ>

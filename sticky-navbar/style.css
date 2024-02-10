@@ -1,0 +1,65 @@
+body {
+    margin: 0px;
+}
+
+.top-container {
+    background-image: url('https://images.unsplash.com/photo-1560762484-813fc97650a0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.top-container h1 {
+    color: white;
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+    -webkit-text-stroke: .1px black;
+}
+
+.text {
+    margin: 50px 5%;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    background-color: white;
+    width: 100%;
+    box-shadow:
+        0px /* Horizontal offset - positive is right, negative is left */
+        -16px /* Vertical offset - positive if down, negative it up */
+        8px /* Blur */
+        20px /* Size */
+        rgba(0, 0, 0, .4);
+        transition: .4s;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    margin: 0px 10px;
+    color: black;
+    font-family: sans-serif;
+    transition: .4s;
+}
+
+.navbar ul li a:hover {
+    color: red;
+}
+
+.navbar.active {
+    background-color: black;
+}
+
+.navbar.active ul li a {
+    color: white;
+}

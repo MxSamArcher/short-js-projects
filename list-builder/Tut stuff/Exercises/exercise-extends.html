@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<htmlJ>
+    <head>
+        <title>Exercise - Extends</title>
+    </head>
+    <body>
+        <script>
+            class Computer {
+                constructor (_make, _model) {
+                    this.make = _make;
+                    this.model = _model
+                }
+
+                boot () {
+                    console.log(`${this.make} ${this.model} is starting`)
+                }
+            }
+
+            class Server extends Computer {
+                constructor (_make, _model, _serverType) {
+                    super (_make, _model);
+
+                    this.serverType = _serverType;
+                }
+
+                checkConnections () {
+                    console.log(`Checking connections to ${this.serverType}`);
+                }
+            }
+
+            const servers = [
+                new Server('Lenovo', 'Rig Master', 'Domain Controller'),
+                new Server('HP', 'ShowRunner', 'Firewall')
+            ]
+
+            function bootServers (serversToBoot) {
+                for (let currentServer of serversToBoot) {
+                    currentServer.boot();
+                    currentServer.checkConnections();
+                }
+            }
+
+            bootServers(servers);
+        </script>
+    </body>
+</htmlJ>

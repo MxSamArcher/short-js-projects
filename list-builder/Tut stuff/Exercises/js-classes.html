@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Classes</title>
+    </head>
+    <body>
+        <script>
+            class Rectangle {
+                // Constructor is run only once when the object is being created
+                // This sets up the object
+                constructor (_width, _height, _colour) {
+                    console.log("The Rectangle is being created");
+                    
+                    this.width = _width;
+                    this.height = _height;
+                    this.colour = _colour;
+                }
+
+                findArea () {
+                    return this.width * this.height;
+                }
+
+                printDescription () {
+                    console.log(`I am a rectangle with an area of ${this.findArea()} and I am ${this.colour}`);
+                }
+            }
+
+            let firstRectangle = new Rectangle(3, 5, 'blue');
+            let secondRectangle = new Rectangle(2, 9, 'blamf');
+
+            console.log(firstRectangle.findArea());
+            console.log(secondRectangle.findArea());
+
+            firstRectangle.printDescription();
+
+
+            class Square {
+                constructor (_width) {
+                    this.width = _width;
+                    this.height = _width;
+                }
+                
+                get area() {
+                    return this.width * this.height;
+                }
+
+                set area (area) {
+                    this.width = Math.sqrt(area);
+                    this.height = this.width;
+                }
+            }
+
+            let firstSquare = new Square(5);
+
+            console.log(firstSquare.area);
+
+            firstSquare.area = 25;
+
+            console.log(firstSquare.width);
+            console.log(firstSquare.height);
+
+            class Shape {
+                constructor (_width) {
+                    this.width = _width;
+                    this.height = _width;
+                }
+
+                static equals (a, b) {
+                    return a.width * a.height === b.width * b.height;
+                }
+            }
+
+            let shapeOne = new Shape(8);
+            let shapeTwo = new Shape(9);
+
+            console.log(Shape.equals(shapeOne, shapeTwo));
+
+        </script>
+    </body>
+</html>

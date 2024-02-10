@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Classes</title>
+    </head>
+    <body>
+        <script>
+            class Person {
+                constructor (_name, _age) {
+                    this.name = _name;
+                    this.age = _age;
+                }
+
+                describe () {
+                    console.log(`I am ${this.name} and I am ${this.age} years old`);
+                }
+            }
+        
+            class Programmer extends Person {
+                constructor (_name, _age, _yearsOfExperience) {
+                    super(_name, _age);
+
+                    // Custom behaviour
+                    this.yearsOfExperience = _yearsOfExperience;
+                }
+
+                code () {
+                    console.log(`${this.name} is coding`);
+                }
+            }
+
+            const programmers = [
+                new Programmer('Ralph', 30, 5),
+                new Programmer('Joey', 41, 19)
+            ];
+
+            function developSoftware (getProgrammers) {
+                // Develop software
+                for (let programmer of getProgrammers) {
+                    programmer.code();
+                }
+            }
+
+            developSoftware(programmers);
+        </script>
+    </body>
+</html>
