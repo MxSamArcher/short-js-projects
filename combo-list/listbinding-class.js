@@ -27,11 +27,9 @@ class ListBinding {
       this.dueDateSelector.type = 'date';
       
       // Event listener to detect 'Enter' key press in the text box
-      let thisTextBoxId = this.listItemTextBox.id
-      document.getElementById(thisTextBoxId).addEventListener('keydown', function(event) {
+      this.listItemTextBox.addEventListener('keydown', function(event) {
           if (event.key === 'Enter') {
-              let listItemTextBoxValue = document.getElementById(thisTextBoxId).value;
-              this.add(listItemTextBoxValue);
+              this.add(this.listItemTextBox.value);
           }
       }.bind(this));
       
@@ -39,8 +37,7 @@ class ListBinding {
       this.createAndAttachElement ('addLiButton', 'button', this.listItemTextBoxDiv.id);
       this.addLiButton.innerHTML = 'Add a list item'
       this.addLiButton.onclick = function () {
-        
-          const listItemTextBoxValue = document.getElementById(thisTextBoxId).value;
+          const listItemTextBoxValue = this.listItemTextBox.value;
           this.add(listItemTextBoxValue);
           const dueDateSelectorValue = this.dueDateSelector.value;
           console.log(dueDateSelectorValue)
