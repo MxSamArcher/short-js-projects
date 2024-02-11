@@ -22,6 +22,9 @@ class ListBinding {
       this.createAndAttachElement ('listItemTextBoxDiv', 'div', this.parentDiv.id);
       this.createAndAttachElement ('listItemTextBox', 'input', this.listItemTextBoxDiv.id);
       this.listItemTextBox.type = 'text';
+      // Date picker:
+      this.createAndAttachElement ('dueDateSelector', 'input', this.listItemTextBoxDiv.id);
+      this.dueDateSelector.type = 'date';
       
       // Event listener to detect 'Enter' key press in the text box
       let thisTextBoxId = this.listItemTextBox.id
@@ -36,8 +39,12 @@ class ListBinding {
       this.createAndAttachElement ('addLiButton', 'button', this.listItemTextBoxDiv.id);
       this.addLiButton.innerHTML = 'Add a list item'
       this.addLiButton.onclick = function () {
-          let listItemTextBoxValue = document.getElementById(thisTextBoxId).value;
+        
+          const listItemTextBoxValue = document.getElementById(thisTextBoxId).value;
           this.add(listItemTextBoxValue);
+          const dueDateSelectorValue = this.dueDateSelector.value;
+          console.log(dueDateSelectorValue)
+          this.add(dueDateSelectorValue);
       }.bind(this);
       
       // Create and append elements related to the controller
