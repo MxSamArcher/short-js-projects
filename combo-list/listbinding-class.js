@@ -36,11 +36,24 @@ class ListBinding {
     // Create and append button to add a list item
     this.createAndAttachElement ('addLiButton', 'button', this.listItemTextBoxDiv);
     this.addLiButton.innerHTML = 'Add a list item'
-    this.addLiButton.onclick = function () {
-      const listItemTextBoxValue = this.listItemTextBox.value;
-      const dueDateSelectorValue = this.dueDateSelector.value;
-      this.add(`${listItemTextBoxValue} - Due date: ${dueDateSelectorValue}`);
-    }.bind(this);
+
+    function onEventListListener (pageElement, eventType) {
+      if (eventType === 'onclick') {
+        pageElement.addEventListener
+      }
+      const listener = () => {
+        const listItemTextBoxValue = this.listItemTextBox.value;
+        const dueDateSelectorValue = this.dueDateSelector.value;
+        this.add(`${listItemTextBoxValue} - Due date: ${dueDateSelectorValue}`);}
+    }
+
+    onEventListListener (addLiButton, 'onclick')
+
+    // this.addLiButton.onclick = function () {
+    //   const listItemTextBoxValue = this.listItemTextBox.value;
+    //   const dueDateSelectorValue = this.dueDateSelector.value;
+    //   this.add(`${listItemTextBoxValue} - Due date: ${dueDateSelectorValue}`);
+    // }.bind(this);
     
     // Create and append elements related to the controller
     this.createAndAttachElement ('controllerDiv', 'div', this.parentDiv);
