@@ -26,32 +26,38 @@ class ListBinding {
     this.createAndAttachElement ('dueDateSelector', 'input', this.listItemTextBoxDiv);
     this.dueDateSelector.type = 'date';
     
-    // Event listener to detect 'Enter' key press in the text box
-    this.listItemTextBox.addEventListener('keydown', function(event) {
-      if (event.key === 'Enter') {
-        this.add(this.listItemTextBox.value);
-      }
-    }.bind(this));
-    
     // Create and append button to add a list item
     this.createAndAttachElement ('addLiButton', 'button', this.listItemTextBoxDiv);
     this.addLiButton.innerHTML = 'Add a list item'
-
-    function onEventListListener (pageElement, eventType) {
-      if (eventType === 'onclick') {
-        pageElement.addEventListener
-      }
-      const listener = () => {
-        const listItemTextBoxValue = this.listItemTextBox.value;
-        const dueDateSelectorValue = this.dueDateSelector.value;
-        this.add(`${listItemTextBoxValue} - Due date: ${dueDateSelectorValue}`);}
+    
+    let TodoLiStringFunction = () => {
+      const listItemTextBoxValue = this.listItemTextBox.value;
+      const dueDateSelectorValue = this.dueDateSelector.value;
+      todoLiString = this.add(`${listItemTextBoxValue} - Due date: ${dueDateSelectorValue}`);
+      return (todoLiString)
     }
 
-    onEventListListener (addLiButton, 'onclick')
+    // Event listener to detect 'Enter' key press in the text box
+    this.listItemTextBox.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        TodoLiStringFunction();
+      }
+    }.bind(this));
+
+    this.addLiButton.addEventListener('click', () => {
+      TodoLiStringFunction();
+    });
+
+    this.dueDateSelector.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        TodoLiStringFunction();
+        event.preventDefault();
+      }
+    })
 
     // this.addLiButton.onclick = function () {
-    //   const listItemTextBoxValue = this.listItemTextBox.value;
-    //   const dueDateSelectorValue = this.dueDateSelector.value;
+      // const listItemTextBoxValue = this.listItemTextBox.value;
+      // const dueDateSelectorValue = this.dueDateSelector.value;
     //   this.add(`${listItemTextBoxValue} - Due date: ${dueDateSelectorValue}`);
     // }.bind(this);
     
