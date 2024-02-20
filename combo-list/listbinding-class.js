@@ -54,12 +54,6 @@ class ListBinding {
         event.preventDefault();
       }
     })
-
-    // this.addLiButton.onclick = function () {
-      // const listItemTextBoxValue = this.listItemTextBox.value;
-      // const dueDateSelectorValue = this.dueDateSelector.value;
-    //   this.add(`${listItemTextBoxValue} - Due date: ${dueDateSelectorValue}`);
-    // }.bind(this);
     
     // Create and append elements related to the controller
     this.createAndAttachElement ('controllerDiv', 'div', this.parentDiv);
